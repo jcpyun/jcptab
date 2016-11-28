@@ -1,4 +1,4 @@
-
+// url=data['articles'][x]['url'] 
 function bloombergNews(){
   xmlhttp=new XMLHttpRequest();
   xmlhttp.open("GET", "https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=8a284b7114cc49efa3f55b969b850f9a", false);
@@ -11,7 +11,8 @@ function bloombergNews(){
   var output="";
   for (var i=0; i<parseddata.articles.length;i++){
     titles.push(parseddata.articles[i].title);
-    output += parseddata.articles[i].title + "<br>";
+    urllink=parseddata.articles[i].url;
+    output += '<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>";
     document.getElementById("bloomberg").innerHTML = output;
   }
 }
@@ -27,12 +28,11 @@ function BBCNews(){
   var output="";
   for (var i=0; i<parseddata.articles.length;i++){
     titles.push(parseddata.articles[i].title);
-    output += parseddata.articles[i].title + "<br>";
+    urllink=parseddata.articles[i].url;
+    output += '<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>";
     document.getElementById("bbc").innerHTML = output;
   }
 }
-
-
 
 function OtherNews(source,sort){
   var apikey="8a284b7114cc49efa3f55b969b850f9a";
@@ -47,7 +47,8 @@ function OtherNews(source,sort){
   var output="";
   for (var i=0; i<parseddata.articles.length;i++){
     titles.push(parseddata.articles[i].title);
-    output += parseddata.articles[i].title + "<br>";
+    urllink=parseddata.articles[i].url;
+    output += '<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>";
     document.getElementById(source).innerHTML = output;
   }
 }
@@ -58,6 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
   bloombergNews();
   BBCNews();
   OtherNews("cnn","top");
-  OtherNews("the-new-york-times","popular");
+  OtherNews("the-new-york-times","top");
 
 });

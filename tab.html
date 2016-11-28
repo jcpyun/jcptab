@@ -1,0 +1,81 @@
+
+<link href="assets/jcpstats.css" rel="stylesheet">
+
+
+
+<style>
+@font-face {
+    font-family: 'Blender'; /*a name to be used later*/
+    src: url("assets/blender.ttf"); /*URL to font*/
+}
+    body {
+    background-color: #101010;
+}
+
+
+</style>
+<script src="news.js"></script>
+
+</br>
+</br>
+</br>
+</br>
+<div class="blender">Hello John,</div>
+
+<div class="markfont">
+    <marquee behavior="scroll" scrollamount="10" bgcolor="#303030" loop="-1" width="100%">   
+            {% for k,v in clean.iteritems %}
+            {{ k }} : {{ v }}  &nbsp &nbsp
+            {% endfor %}
+    </marquee> 
+</div>
+<body>
+   
+<div class= "articles">
+    <div class="row">
+        <div class="col-6">
+            <div class= "compfont">
+            Bloomberg
+            </div>
+            <div class= "orfont">
+            <div id="bloomberg"></div>
+            </div>
+
+
+            <div class= "compfont">
+            CNN
+            </div>
+            <div class= "orfont">
+            {% for k ,v in cnn.iteritems %}
+            -<a href="{{ v }}">{{ k }}</a> </br>
+            {% endfor %}
+            <!--{{ stats }}-->
+            </div>
+
+
+        </div>
+        <div class="col-6">
+            <div class= "compfont">
+            BBC
+            </div>
+            <div class= "orfont">
+            {% for k ,v in bbc.iteritems %}
+            -<a href="{{ v }}">{{ k }}</a> </br>
+            {% endfor %}
+            <!--{{ stats }}-->
+            </div>
+            <div class= "compfont">
+            Times
+            </div>
+            <div class= "orfont">
+            {% for k ,v in times.iteritems %}
+            -<a href="{{ v }}">{{ k }}</a> </br>
+            {% endfor %}
+            <!--{{ stats }}-->
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+</body>

@@ -75,6 +75,11 @@ text-decoration:underline;
 	text-align: ;
 	margin-top:0px;
 }
+.block_container
+{
+    text-align:center;
+}
+
 .blender{
     position:relative;
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -84,6 +89,18 @@ text-decoration:underline;
     color: #ffffff;
 	margin-left:80px;
     margin-top:0px;
+    display:inline;
+}
+.timer{
+    position:relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size:50;
+    color: #ffffff;
+	margin-left:80px;
+    margin-top:0px;
+    display:inline;
 }
 
 /*************************************

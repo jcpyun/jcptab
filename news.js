@@ -1,4 +1,13 @@
-// url=data['articles'][x]['url'] 
+
+function jcpyunfeed(){
+  xmlhttp=new XMLHttpRequest();
+  xmlhttp.open("GET", "https://www.facebook.com", false);
+  xmlhttp.send();
+  var parseddata = JSON.parse(xmlhttp.responseText);
+  console.log(parseddata);
+}
+
+/////////////// NEWS 
 function bloombergNews(){
   xmlhttp=new XMLHttpRequest();
   xmlhttp.open("GET", "https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=8a284b7114cc49efa3f55b969b850f9a", false);
@@ -12,7 +21,7 @@ function bloombergNews(){
   for (var i=0; i<parseddata.articles.length;i++){
     titles.push(parseddata.articles[i].title);
     urllink=parseddata.articles[i].url;
-    output += '<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>";
+    output += '-<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>";
     document.getElementById("bloomberg").innerHTML = output;
   }
 }
@@ -29,7 +38,7 @@ function BBCNews(){
   for (var i=0; i<parseddata.articles.length;i++){
     titles.push(parseddata.articles[i].title);
     urllink=parseddata.articles[i].url;
-    output += '<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>";
+    output += '-<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>";
     document.getElementById("bbc").innerHTML = output;
   }
 }
@@ -48,11 +57,11 @@ function OtherNews(source,sort){
   for (var i=0; i<parseddata.articles.length;i++){
     titles.push(parseddata.articles[i].title);
     urllink=parseddata.articles[i].url;
-    output += '<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>";
+    output += '-<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>";
     document.getElementById(source).innerHTML = output;
   }
 }
-
+///////////////
 function displaytime(){
   var temptime= new Date();
   var output= String(temptime.getHours())+":"+String(temptime.getMinutes())+":"+String(temptime.getSeconds());
@@ -87,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
   BBCNews();
   OtherNews("cnn","top");
   OtherNews("the-new-york-times","top");
+  // jcpyunfeed();
   displaytime();
   window.setInterval(displaytime, 1000);
 

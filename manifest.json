@@ -1,8 +1,8 @@
 {
-  "name": "jcp environment",
+  "name": "jcptab",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "better browsing capability",
+  "description": "simple extension",
   "browser_action": {
     "default_icon": "assets/jp.png",
     "default_popup": "pop.html"
@@ -10,31 +10,16 @@
   "chrome_url_overrides" : {
     "newtab": "tab.html"
   },
-  "background": {
-      "scripts":["background.js","assets/jquery-3.1.0.js"],
-      "persistent":false //what is this
-  },
+  
   "icons":{
     "64" : "assets/jp.png",
     "32" : "assets/jp.png",
     "16" : "assets/jp.png",
     "128" : "assets/jp.png"
   },
-  "content_scripts":[
-      {
-          "matches": ["http://*/*", "https://*/*","<all_urls>"],
-          // "css":["bs/css/bootstrap.min.css"],
-          "css": [],
-          "js": ["assets/jquery-3.1.0.js"]
-      }
-  ],
-
-  "permissions": ["tabs", "<all_urls>","http://www.google.com/*",
+   "permissions": ["tabs", "<all_urls>",
           "http://*/*",
-          "https://*/*",
-          "background",
-          "storage",
-
-          "activeTab"]
+          "https://*/*"]
+ 
 }
 

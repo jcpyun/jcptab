@@ -1,3 +1,8 @@
+/////////////////////
+/*  
+    news.js by jcpyun
+*/
+//////////////////////
 function jcpyunfeed(){ //for local debugging purpose
   xmlhttp=new XMLHttpRequest();
   xmlhttp.open("GET", "http://127.0.0.1:8000/media/traffic.json", false);
@@ -117,7 +122,23 @@ function quotes(){
     datapoints=parseddata.data_values;
     datapoints=parseddata.data_values[datapoints.length-1][1]
     // console.log(datapoints);
-    output+=symbols[i]+":"+datapoints+"&nbsp &nbsp &nbsp"
+    prevclose=parseddata.prev_close;
+    delta= datapoints-prevclose;
+
+    
+    delta=Math.round(delta*100)/100;
+    percent=delta/prevclose *100;
+    percent=Math.round(percent*100)/100;
+    percent="(%"+String(percent)+")";
+    if (delta>=0){
+      var colour="green";
+      delta=String(delta);
+      delta="+"+delta;
+    }
+    if (delta<0){
+      var colour="red"
+    }
+    output+="<font color='white'>"+symbols[i]+"</font>"+ ":"+ "<font color="+colour+">"+datapoints+"&nbsp&nbsp"+delta+"&nbsp"+percent+"</font>"+"&nbsp &nbsp &nbsp"
 
     }
     // console.log(output);
@@ -147,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //// Note: It only works on Packed extension for security reason: 
 // refer: http://stackoverflow.com/questions/9421933/cross-origin-xmlhttprequest-in-chrome-extensions
 
-/// thank you https://www.html5rocks.com/en/tutorials/cors/
+/// from https://www.html5rocks.com/en/tutorials/cors/
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {

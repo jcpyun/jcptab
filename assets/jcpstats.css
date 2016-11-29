@@ -79,7 +79,14 @@ text-decoration:underline;
     position: relative;
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: 	#FF4500;
-	text-align: ;
+
+	margin-top:0px;
+}
+.quotefont{
+    position: relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: 	#FF4500;
+
 	margin-top:0px;
 }
 .block_container

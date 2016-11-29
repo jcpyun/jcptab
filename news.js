@@ -63,8 +63,21 @@ function OtherNews(source,sort){
 ///////////////
 function displaytime(){
   var temptime= new Date();
-
-  var output= String(temptime.getHours())+":"+String(temptime.getMinutes())+":"+String(temptime.getSeconds());
+  var thour=String(temptime.getHours());
+  var tminute=String(temptime.getMinutes());
+  var tsecond=String(temptime.getSeconds());
+  if (thour.length==1){
+    thour=0+thour;
+  }
+  if (tminute.length==1){
+    tminute=0+tminute;
+  }
+  if (tsecond.length==1){
+    tsecond=0+tsecond;
+  }
+ 
+  
+  var output= thour+":"+tminute+":"+tsecond;
   document.getElementById("displaytime").innerHTML=output;
 }
 
@@ -116,13 +129,18 @@ function quotes(){
 
 document.addEventListener('DOMContentLoaded', function () {
   bloombergNews();
+  // window.setInterval(bloombergNews, 1000);
   BBCNews();
+  // window.setInterval(BBCNews, 1000);
   OtherNews("cnn","top");
+  // window.setInterval(OtherNews("cnn","top"), 1000);
   OtherNews("the-new-york-times","top");
+  // window.setInterval(OtherNews("the-new-york-times","top"), 1000);
   // jcpyunfeed();
   quotes();
   displaytime();
   window.setInterval(displaytime, 1000);
+  window.setInterval(quotes, 1000);
 
 });
 

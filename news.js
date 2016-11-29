@@ -1,35 +1,4 @@
-//// Note: It only works on Packed extension for security reason: 
-// refer: http://stackoverflow.com/questions/9421933/cross-origin-xmlhttprequest-in-chrome-extensions
-
-/// thank you https://www.html5rocks.com/en/tutorials/cors/
-function createCORSRequest(method, url) {
-  var xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
-
-    // Check if the XMLHttpRequest object has a "withCredentials" property.
-    // "withCredentials" only exists on XMLHTTPRequest2 objects.
-    xhr.open(method, url, true);
-
-  } else if (typeof XDomainRequest != "undefined") {
-
-    // Otherwise, check if XDomainRequest.
-    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-
-  } else {
-
-    // Otherwise, CORS is not supported by the browser.
-    xhr = null;
-
-  }
-  return xhr;
-}
-////////////////
-
-
-
-function jcpyunfeed(){
+function jcpyunfeed(){ //for local debugging purpose
   xmlhttp=new XMLHttpRequest();
   xmlhttp.open("GET", "http://127.0.0.1:8000/media/traffic.json", false);
   xmlhttp.send();
@@ -94,6 +63,7 @@ function OtherNews(source,sort){
 ///////////////
 function displaytime(){
   var temptime= new Date();
+
   var output= String(temptime.getHours())+":"+String(temptime.getMinutes())+":"+String(temptime.getSeconds());
   document.getElementById("displaytime").innerHTML=output;
 }
@@ -130,27 +100,18 @@ function quotes(){
     xmlhttp.open("GET","https://www.bloomberg.com/markets/chart/data/1D/"+symbols[i]+":US" , false);
     xmlhttp.send();
     var parseddata = JSON.parse(xmlhttp.responseText);
-    console.log(parseddata);
+    // console.log(parseddata);
     datapoints=parseddata.data_values;
     datapoints=parseddata.data_values[datapoints.length-1][1]
-    console.log(datapoints);
-    output+=symbols[i]+":"+datapoints+"    "
+    // console.log(datapoints);
+    output+=symbols[i]+":"+datapoints+"&nbsp &nbsp &nbsp"
 
     }
-    console.log(output);
+    // console.log(output);
+    document.getElementById("quotes").innerHTML=output;
   
 }
-// def cleaner():
-//     symbols=["AAPL","EBAY","MSFT","TSLA","GOOGL","AMZN"]
-//     res={}
-//     for x in symbols:
-//         htmltext=urllib.urlopen("http://www.bloomberg.com/markets/chart/data/1D/"+x+":US")
-//         data=json.load(htmltext)
-//         datapoints=data["data_values"]
-//         datapoints=data["data_values"][len(datapoints)-1][1]
-//         res.setdefault(x,0)
-//         res[x]=datapoints
-//     return res
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -164,3 +125,32 @@ document.addEventListener('DOMContentLoaded', function () {
   window.setInterval(displaytime, 1000);
 
 });
+
+//// Note: It only works on Packed extension for security reason: 
+// refer: http://stackoverflow.com/questions/9421933/cross-origin-xmlhttprequest-in-chrome-extensions
+
+/// thank you https://www.html5rocks.com/en/tutorials/cors/
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+
+    // Check if the XMLHttpRequest object has a "withCredentials" property.
+    // "withCredentials" only exists on XMLHTTPRequest2 objects.
+    xhr.open(method, url, true);
+
+  } else if (typeof XDomainRequest != "undefined") {
+
+    // Otherwise, check if XDomainRequest.
+    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+
+  } else {
+
+    // Otherwise, CORS is not supported by the browser.
+    xhr = null;
+
+  }
+  return xhr;
+}
+////////////////

@@ -1,22 +1,5 @@
-
 <link href="assets/jcpstats.css" rel="stylesheet">
-
-
-
-<style>
-@font-face {
-    font-family: 'Blender'; /*a name to be used later*/
-    src: url("assets/blender.ttf"); /*URL to font*/
-}
-    body {
-    background-color: #101010;
-}
-
-
-</style>
 <script src="news.js"></script>
-
-
 
 <div class="block_container"> 
     <div class="timer">
@@ -26,7 +9,7 @@
 
 <div class="markfont">
     <marquee behavior="scroll" scrollamount="10" bgcolor="#303030" loop="-1" width="100%">   
-            -
+            <div id="quotes"></div>
     </marquee> 
 </div>
 <body>
@@ -35,37 +18,34 @@
     <div class="row">
         <div class="col-6">
             <div class= "compfont">
-            Bloomberg
+                Bloomberg
             </div>
             <div class= "orfont">
-            <div id="bloomberg"></div>
+                <div id="bloomberg"></div>
             </div>
 
 
             <div class= "compfont">
-            CNN
+                CNN
             </div>
             <div class= "orfont">
-            <div id="cnn"></div>
-            <!--{{ stats }}-->
+                <div id="cnn"></div>
             </div>
 
 
         </div>
         <div class="col-6">
             <div class= "compfont">
-            BBC
+                BBC
             </div>
             <div class= "orfont">
-            <div id="bbc"></div>
-            <!--{{ stats }}-->
+                <div id="bbc"></div>
             </div>
             <div class= "compfont">
-            The New York Times
+                The New York Times
             </div>
             <div class= "orfont">
-            <div id="the-new-york-times"></div>
-            <!--{{ stats }}-->
+                <div id="the-new-york-times"></div>
             </div>
         </div>
        
@@ -73,3 +53,4 @@
 </div>
 
 </body>
+

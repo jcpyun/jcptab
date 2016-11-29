@@ -1,7 +1,37 @@
+//// Note: It only works on Packed extension for security reason: 
+// refer: http://stackoverflow.com/questions/9421933/cross-origin-xmlhttprequest-in-chrome-extensions
+
+/// thank you https://www.html5rocks.com/en/tutorials/cors/
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+
+    // Check if the XMLHttpRequest object has a "withCredentials" property.
+    // "withCredentials" only exists on XMLHTTPRequest2 objects.
+    xhr.open(method, url, true);
+
+  } else if (typeof XDomainRequest != "undefined") {
+
+    // Otherwise, check if XDomainRequest.
+    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+
+  } else {
+
+    // Otherwise, CORS is not supported by the browser.
+    xhr = null;
+
+  }
+  return xhr;
+}
+////////////////
+
+
 
 function jcpyunfeed(){
   xmlhttp=new XMLHttpRequest();
-  xmlhttp.open("GET", "https://www.facebook.com", false);
+  xmlhttp.open("GET", "http://127.0.0.1:8000/media/traffic.json", false);
   xmlhttp.send();
   var parseddata = JSON.parse(xmlhttp.responseText);
   console.log(parseddata);
@@ -69,14 +99,46 @@ function displaytime(){
 }
 
 function quotes(){
-  symbols=["AAPL","EBAY","MSFT","TSLA","GOOGL","AMZN"];
-  for (var i = 0; i<symbols.length;i++){
+  symbols=["EBAY","AAPL","MSFT","TSLA","GOOGL","AMZN"];
+
+
+// var url = 'https://www.bloomberg.com/markets/chart/data/1D/AAPL:US';
+// var xhr = createCORSRequest('GET', url);
+// xhr.withCredentials = false;
+// console.log(xhr)
+// xhr.send();
+  
+    // var xhr= new XMLHttpRequest();
+    // xhr.withCredentials = false;
+    
+    // xhr.open("GET","https://www.bloomberg.com/markets/chart/data/1D/AAPL:US" ,true);
+    // // xhr.setRequestHeader( 'Access-Control-Allow-Origin', '*');
+    // xhr.onreadystatechange=function(){
+    //   if (xhr.readyState==4){
+    //     var resp=JSON.parse(xhr.responseText);
+    //     console.log(resp);
+    //   }
+    // }
+    // xhr.send();
+
+
+
+    // console.log(resp);
+    var output=""
+    for (var i=0;i<symbols.length;i++){
     xmlhttp=new XMLHttpRequest();
-    xmlhttp.open("GET","http://www.bloomberg.com/markets/chart/data/1D/"+symbols[i]+":US" , false);
+    xmlhttp.open("GET","https://www.bloomberg.com/markets/chart/data/1D/"+symbols[i]+":US" , false);
     xmlhttp.send();
     var parseddata = JSON.parse(xmlhttp.responseText);
-    
-  }
+    console.log(parseddata);
+    datapoints=parseddata.data_values;
+    datapoints=parseddata.data_values[datapoints.length-1][1]
+    console.log(datapoints);
+    output+=symbols[i]+":"+datapoints+"    "
+
+    }
+    console.log(output);
+  
 }
 // def cleaner():
 //     symbols=["AAPL","EBAY","MSFT","TSLA","GOOGL","AMZN"]
@@ -97,6 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
   OtherNews("cnn","top");
   OtherNews("the-new-york-times","top");
   // jcpyunfeed();
+  quotes();
   displaytime();
   window.setInterval(displaytime, 1000);
 

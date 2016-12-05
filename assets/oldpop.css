@@ -6,6 +6,12 @@ body {
 	margin: 0;
     padding: 0;
       }
+
+@font-face {
+    font-family: 'Blender'; 
+    src: url("blender.ttf");
+}
+
 #status {
         /* avoid an excessively wide status text */
         white-space: pre;
@@ -139,4 +145,14 @@ text-decoration: none;
 }
 a:hover {
 color: #FF3300;
+}
+
+.foot{
+  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+    font-size: 10px;
+    color: #000;
+	 text-align: center;
+	 margin-top:10px;
 }

@@ -1,6 +1,6 @@
 {
   "name": "jcptab",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 2,
   "description": "simple extension",
   "browser_action": {
@@ -8,7 +8,7 @@
     "default_popup": "pop.html"
   },
   "chrome_url_overrides" : {
-    "newtab": "tab.html"
+    "newtab": "pop.html"
   },
   
   "icons":{

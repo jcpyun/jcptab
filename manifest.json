@@ -1,6 +1,6 @@
 {
   "name": "jcptab",
-  "version": "1.1",
+  "version": "1.2",
   "manifest_version": 2,
   "description": "simple extension",
   "browser_action": {
@@ -8,9 +8,10 @@
     "default_popup": "pop.html"
   },
   "chrome_url_overrides" : {
-    "newtab": "pop.html"
+    "newtab": "tab.html"
   },
-  
+  "options_page": "options.html",
+  "web_accessible_resources": ["src/options/options.html"],
   "icons":{
     "64" : "assets/jp.png",
     "32" : "assets/jp.png",
@@ -21,7 +22,8 @@
           "http://*/*",
           "https://*/*",
           "http://*/",
-          "https://*/"]
+          "https://*/",
+          "storage"]
  
 }
 

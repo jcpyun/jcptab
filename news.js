@@ -85,15 +85,15 @@ function displaytime(){
   var output= thour+":"+tminute+":"+tsecond;
   document.getElementById("displaytime").innerHTML=output;
 }
-function msg(){
-    xmlhttp=new XMLHttpRequest();
-    xmlhttp.open("GET","https://qalantir.herokuapp.com/api/chrome/?format=json" , false);
-    xmlhttp.send();
-    var parseddata= JSON.parse(xmlhttp.responseText);
-    output= parseddata[parseddata.length-1].msg;
-    console.log(output);
-    document.getElementById("msg").innerHTML = output;
-}
+// function msg(){
+//     xmlhttp=new XMLHttpRequest();
+//     xmlhttp.open("GET","https://qalantir.herokuapp.com/api/chrome/?format=json" , false);
+//     xmlhttp.send();
+//     var parseddata= JSON.parse(xmlhttp.responseText);
+//     output= parseddata[parseddata.length-1].msg;
+//     console.log(output);
+//     document.getElementById("msg").innerHTML = output;
+// }
 
 function quotes(){
   symbols=["EBAY","AAPL","MSFT","TSLA","GOOGL","AMZN"];
@@ -159,7 +159,7 @@ function quotes(){
 
 document.addEventListener('DOMContentLoaded', function () {
   bloombergNews();
-  msg();
+  // msg();
   // window.setInterval(bloombergNews, 1000);
   BBCNews();
   // window.setInterval(BBCNews, 1000);

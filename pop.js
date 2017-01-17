@@ -3,7 +3,7 @@
 
 
 var optionsUrl = chrome.extension.getURL("options.html"); 
-var content = '<a href="' + optionsUrl + '" target="_blank">Options</a>';
+var content = '<a href="' + optionsUrl + '" target="_blank">Settings</a>';
 
 function saveChanges(){
     var checked;
@@ -23,5 +23,5 @@ function saveChanges(){
           message('Settings saved');
         });
       }
-      
+
 document.getElementById("wowow").innerHTML=content;

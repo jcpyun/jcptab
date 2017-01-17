@@ -21,20 +21,30 @@
     
 -->
 
+<!--
+    For future reference:
+    https://www.npmjs.com/package/react-chrome-extension-boilerplate-->
 <link href="assets/pop.css" rel="stylesheet">
 <body>
 <div class="block_container">
     <div class="header">
-        JCP TAB
+        jcpyun
     </div>
 </div>
+<select id="columnOptions">
+ <option value="1">1</option>
+ <option value="2">2</option>
+</select>
+
 <div class="checkbox_style">
-    <form action="demo_form.asp" method="get">
-    <input type="checkbox" name="News" value="Bloomberg">Bloomberg<br>
-    <input type="checkbox" name="News" value="BBC" checked>BBC<br>
-    <input type="submit" value="Submit">
-    </form>
+    <input type="checkbox" name="News" id="Bloomberg">Bloomberg<br>
+    <input type="checkbox" name="News" id="BBC" checked>BBC<br>
+    <button id="save">Save</button>
 </div>
+<div id="currentColumn"></div>
+<div id="status"></div>
 <div id= "wowow"></div>
+
 </body>
 <script src="pop.js"></script>
+<!--<script src="newssave.js"></script>-->

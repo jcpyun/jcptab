@@ -28,23 +28,30 @@
 <body>
 <div class="block_container">
     <div class="header">
-        jcpyun
+        GRANITE API
     </div>
 </div>
+<div class="options">Column:</div>
 <select id="columnOptions">
  <option value="1">1</option>
  <option value="2">2</option>
 </select>
-
+</br>
+<div class="options">NEWS Agencies:</div>
 <div class="checkbox_style">
-    <input type="checkbox" name="News" id="Bloomberg">Bloomberg<br>
-    <input type="checkbox" name="News" id="BBC" checked>BBC<br>
-    <button id="save">Save</button>
+    <input type="checkbox" name="News" id="Bloomberg">Bloomberg
+    <input type="checkbox" name="News" id="BBC" checked>BBC
+    <input type="checkbox" name="News" id="CNN" checked>CNN
+    <input type="checkbox" name="News" id="NYT" checked>The New York Times
+    <br>
+    <!--<button id="save">Save</button>-->
+    <button id="columnSave">Save</button>
 </div>
-<div id="currentColumn"></div>
+<div id="currentColumn" style="color:#fff"></div>
+<div id="currentColumnStatus"></div>
 <div id="status"></div>
 <div id= "wowow"></div>
 
 </body>
 <script src="pop.js"></script>
-<!--<script src="newssave.js"></script>-->
+<script src="newssave.js"></script>

@@ -7,7 +7,7 @@
 body {
     min-width:400px;
     min-height:1000px;
-    background-color: #101010;
+    background-color: #FFA500;
     margin:0px !important;
     padding: 0;
 }
@@ -103,11 +103,21 @@ text-decoration:underline;
     font-weight: 500;
     letter-spacing: 1px;
     font-size:50;
-    color: #FFA500;
+    color: #fff;
     display:inline;
 
 }
 
+.options{
+    /*position:relative;*/
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    /*font-size:50;*/
+    color: #fff;
+    display:inline;
+
+}
 /*************************************
                image
 **************************************/
@@ -140,4 +150,8 @@ text-decoration:underline;
     color:#fff;
 }
 
+#status{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#fff;
+}
 

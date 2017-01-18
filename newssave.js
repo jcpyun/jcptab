@@ -42,3 +42,8 @@ function saver(){
 }
 document.getElementById('columnSave').addEventListener('click',saver);
 
+
+// var matches = ["wowl","sup"];
+// $(".className:checked").each(function() {
+//     matches.push(this.value);
+// });

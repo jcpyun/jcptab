@@ -1,0 +1,29 @@
+{
+  "name": "jcptab",
+  "version": "1.2",
+  "manifest_version": 2,
+  "description": "simple extension",
+  "browser_action": {
+    "default_icon": "assets/jp.png",
+    "default_popup": "pop.html"
+  },
+  "chrome_url_overrides" : {
+    "newtab": "tab.html"
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": ["src/options/options.html"],
+  "icons":{
+    "64" : "assets/jp.png",
+    "32" : "assets/jp.png",
+    "16" : "assets/jp.png",
+    "128" : "assets/jp.png"
+  },
+   "permissions": ["tabs", "<all_urls>",
+          "http://*/*",
+          "https://*/*",
+          "http://*/",
+          "https://*/",
+          "storage"]
+ 
+}
+

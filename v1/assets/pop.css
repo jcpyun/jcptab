@@ -1,0 +1,158 @@
+/* Designed by jcpyun in California */
+
+/*       Welcome to jcpyun.css      */ 
+/*************************************
+                 Font
+**************************************/
+body {
+    min-width:400px;
+    min-height:800px;
+    background-color: #FFA500;
+    margin:20px !important;
+    padding: 0;
+    background: linear-gradient(to bottom right,#000000,  #152515); 
+}
+
+
+@font-face {
+    font-family: 'Blender'; 
+    src: url("blender.ttf");
+}
+
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    /*border: 1px solid red;*/
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.orfont a:link {
+color: #FFA500;
+text-decoration:None;
+}
+.orfont a:visited {
+color: #999999;
+}
+.orfont a:hover {
+color: #FF3300;
+text-decoration:underline;
+}
+.compfont{
+    position: relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size:50;
+    color: 	#FFA500;
+	text-align: left;
+	margin-top:0px;
+    padding-left:50px;
+}
+
+.orfont{
+    position: relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 10;
+    letter-spacing: 1px;
+    font-size:20;
+    color: 	#FFA500;
+	text-align: ;
+	margin-top:0px;
+}
+.markfont{
+    position: relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: 	#FF4500;
+
+	margin-top:0px;
+}
+.quotefont{
+    position: relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: 	#FF4500;
+
+	margin-top:0px;
+}
+.block_container
+{
+    text-align:center;
+}
+
+
+.header{
+    position:relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size:50;
+    color: #fff;
+    display:inline;
+
+}
+
+.options{
+    /*position:relative;*/
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    /*font-size:50;*/
+    color: #fff;
+    display:inline;
+
+}
+/*************************************
+               image
+**************************************/
+
+.logocontainer{
+    text-align:center;
+}
+
+.logos{
+    display:inline-block;
+    margin:5px 20px;
+    padding:5px;
+}
+
+/*************************************
+               form 
+**************************************/
+
+.wow-form{
+  /*background: #FFFFFF;*/
+  /*max-width: 360px;*/
+  margin: 0 auto 10px;
+  padding: 100px;
+  text-align: center;
+
+}
+
+.checkbox_style{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#fff;
+}
+
+#status{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#fff;
+}
+

@@ -22,24 +22,14 @@ function restore_options() {
   chrome.storage.sync.get({
     columnPreference: '2',
   }, function(items) {
-    // document.getElementById('currentColumn').value = items.columnPreference;
-    // document.getElementById('like').checked = items.likesColor;
+    document.getElementById('currentColumn').value = items.columnPreference;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 // document.getElementById('save').addEventListener('click',save_options);
 function saver(){
     var column = document.getElementById('columnOptions').value;
-    // var news = document.getElementById('columnOptions').value;
-    var newsList=[];
-    for (var i=0; i<document.getElementsByName("News").length;i++){
-        if (document.getElementsByName("News")[i].checked){
-        newsList.push(document.getElementsByName("News")[i].id)
-        }
-    }
-
-    // var x = document.getElementsByName("fname")[0].value
-    chrome.storage.sync.set({"columnSetting":column,"newsList":newsList }, function() {
+    chrome.storage.sync.set({"columnSetting":column }, function() {
           // Notify that we saved.
           console.log('Settings saved');
           
@@ -55,7 +45,7 @@ function saver(){
     
     
    
-    chrome.storage.sync.get(null, function (Items) {console.log(Items.newsList)});
+    chrome.storage.sync.get(null, function (Items) {console.log(Items.columnSetting)});
 }
 document.getElementById('columnSave').addEventListener('click',saver);
 

@@ -33,23 +33,27 @@
 </div>
 <div class="options">Column:</div>
 <select id="columnOptions">
- <option value="1">1</option>
- <option value="2">2</option>
+ <option value="2">-------</option>
+ <option value="1">1 Column</option>
+ <option value="2">2 Columns</option>
 </select>
 </br>
 <div class="options">NEWS Agencies:</div>
-<div class="checkbox_style">
-    <input type="checkbox" name="News" id="bloomberg" checked>Bloomberg
-    <input type="checkbox" name="News" id="bbc-news" checked >BBC
-    <input type="checkbox" name="News" id="cnn" checked >CNN
-    <input type="checkbox" name="News" id="the-new-york-times" checked >The New York Times
-    <input type="checkbox" name="News" id="business-insider" >Business Insider
-    <input type="checkbox" name="News" id="google-news" >Google News
-    <input type="checkbox" name="News" id="the-economist" >The Economist
-    <input type="checkbox" name="News" id="hacker-news" >Hacker News
-    <br>
-    <!--<button id="save">Save</button>-->
-    <button id="columnSave">Save</button>
+<div class="row">
+    <div class="checkbox_style">
+        <input type="checkbox" name="News" id="bloomberg" checked>Bloomberg
+        <input type="checkbox" name="News" id="bbc-news" checked >BBC
+        <input type="checkbox" name="News" id="cnn" checked >CNN
+        <input type="checkbox" name="News" id="the-new-york-times" checked >The New York Times
+        <input type="checkbox" name="News" id="business-insider" >Business Insider
+        <input type="checkbox" name="News" id="google-news" >Google News
+        <input type="checkbox" name="News" id="the-economist" >The Economist
+        <input type="checkbox" name="News" id="hacker-news" >Hacker News
+        <br>
+        <!--<button id="save">Save</button>-->
+        <button id="columnSave">Save</button>
+        <div id="status"></div>
+    </div>
 </div>
 <div id="currentColumn" style="color:#fff"></div>
 <div id="currentColumnStatus"></div>

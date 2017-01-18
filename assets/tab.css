@@ -23,6 +23,7 @@ body {
     content: "";
     clear: both;
     display: block;
+    left:50%;
 }
 [class*="col-"] {
     float: left;
@@ -40,7 +41,8 @@ body {
 .col-9 {width: 75%;}
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+.col-12 {width: 100%;
+padding-left:30%;}
 
 .orfont a:link {
 color: #FFA500;
@@ -62,7 +64,7 @@ text-decoration:underline;
     color: 	#FFA500;
 	text-align: left;
 	margin-top:0px;
-    padding-left:50px;
+    /*padding-left:100px;*/
 }
 
 .orfont{

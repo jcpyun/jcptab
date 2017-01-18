@@ -33,6 +33,13 @@ function saver(){
           // Notify that we saved.
           console.log('Settings saved');
           
+              // Update status to let user know options were saved.
+        var status = document.getElementById('status');
+        status.textContent = 'Options saved. Please refresh the tab.';
+        setTimeout(function() {
+        status.textContent = '';
+        }, 1200);
+
         });
     // document.getElementById("currentColumnStatus").textContent=chrome.storage.sync.get(columnSetting);
     

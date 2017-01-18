@@ -6,10 +6,11 @@
 **************************************/
 body {
     min-width:400px;
-    min-height:1000px;
+    min-height:800px;
     background-color: #FFA500;
-    margin:0px !important;
+    margin:20px !important;
     padding: 0;
+    background: linear-gradient(to bottom right,#000000,  #152515); 
 }
 
 

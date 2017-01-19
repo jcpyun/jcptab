@@ -4,9 +4,11 @@
 */
 //////////////////////
 
-/////////////// NEWS 
+/*/////////////// 
 
-///////////////
+bork bork bork
+
+///////////////*/
 function displaytime(){
   var temptime= new Date();
   var thour=String(temptime.getHours());
@@ -75,6 +77,8 @@ function ModularNews(source,sort){
     "google-news":"Google News",
     "the-economist":"The Economist",
     "hacker-news":"Hacker News",
+    "national-geographic":"National Geographic",
+    "time":"Time"
   }
   var apikey="8a284b7114cc49efa3f55b969b850f9a";
   xmlhttp=new XMLHttpRequest();

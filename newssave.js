@@ -1,18 +1,3 @@
-// function save_options() {
-//   var column = document.getElementById('columnOptions').value;
-//   chrome.storage.sync.set({
-//     columnPreference: column,
-//   }, function() {
-//     // Update status to let user know options were saved.
-//     var status = document.getElementById('status');
-//     status.textContent = 'Options saved.';
-//     setTimeout(function() {
-//       status.textContent = '';
-//     }, 750);
-//   });
-//   console.log("save wow");
-// }
-//////////
 
 
 // Restores select box and checkbox state using the preferences
@@ -20,10 +5,7 @@
 function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
-    columnPreference: '2',
   }, function(items) {
-    // document.getElementById('currentColumn').value = items.columnPreference;
-    // document.getElementById('like').checked = items.likesColor;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
@@ -38,12 +20,11 @@ function saver(){
         }
     }
 
-    // var x = document.getElementsByName("fname")[0].value
     chrome.storage.sync.set({"columnSetting":column,"newsList":newsList }, function() {
           // Notify that we saved.
           console.log('Settings saved');
           
-              // Update status to let user know options were saved.
+        // Update status to let user know options were saved.
         var status = document.getElementById('status');
         status.textContent = 'Options saved. Please refresh the tab.';
         setTimeout(function() {
@@ -51,14 +32,23 @@ function saver(){
         }, 1200);
 
         });
-    // document.getElementById("currentColumnStatus").textContent=chrome.storage.sync.get(columnSetting);
     
-    
-   
-    chrome.storage.sync.get(null, function (Items) {console.log(Items.newsList)});
+    chrome.storage.sync.get(null, function (Items) {
+      console.log(Items.newsList);
+ 
+    });
 }
 document.getElementById('columnSave').addEventListener('click',saver);
 
+document.addEventListener('DOMContentLoaded', function () {
+    chrome.storage.sync.get(null, function (Items) {
+      // console.log(Items.newsList);
+      for (var i=0; i<Items.newsList.length;i++){
+        document.getElementById(Items.newsList[i]).checked=true;
+        // document.getElementById("columnOptions").options
+      }
+    });
+});
 
 // var matches = ["wowl","sup"];
 // $(".className:checked").each(function() {

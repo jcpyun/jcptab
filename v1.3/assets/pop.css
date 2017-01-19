@@ -117,7 +117,15 @@ text-decoration:underline;
     /*font-size:50;*/
     color: #fff;
     display:inline;
-
+}
+.note{
+    /*position:relative;*/
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    /*font-size:50;*/
+    color: #FF3300;
+    display:inline;
 }
 /*************************************
                image
@@ -156,3 +164,45 @@ text-decoration:underline;
     color:#fff;
 }
 
+
+/********
+button
+*********/
+.wowbutton{
+  position:relative;
+  font-family: "Blender",'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background-color: Transparent;
+  border: 2px solid #43A047;
+  width:100px;
+  padding: 5px;
+  color: #FFF;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background 0.4s ease-in-out;
+}
+.wowbutton:hover {
+  background: #43A047;
+}
+
+
+/***********
+search bar goes here
+***********/
+input[type=text] {
+    width: 200px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 10px;
+    background-color: white;
+    /*background-image: url('searchicon.png');*/
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}

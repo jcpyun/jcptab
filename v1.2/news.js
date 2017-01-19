@@ -271,7 +271,7 @@ chrome.storage.sync.get(null, function (Items) {
         $(document).ready(function() { 
             var els = document.getElementsByClassName('col-12');
             while (els.length) {els[0].className = 'col-6';}  
-            ModularNews("hacker-news","top"); 
+            // ModularNews("hacker-news","top"); 
         });
     }
 });

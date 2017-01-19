@@ -19,8 +19,12 @@ function saver(){
         newsList.push(document.getElementsByName("News")[i].id)
         }
     }
-
-    chrome.storage.sync.set({"columnSetting":column,"newsList":newsList }, function() {
+    var symbolList=[];
+    chrome.storage.sync.set({
+      "columnSetting":column,
+      "newsList":newsList,
+      "symbolList":symbolList,
+     }, function() {
           // Notify that we saved.
           console.log('Settings saved');
           

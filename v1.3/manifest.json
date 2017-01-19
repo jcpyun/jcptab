@@ -10,8 +10,8 @@
   "chrome_url_overrides" : {
     "newtab": "tab.html"
   },
-  "options_page": "options.html",
-  "web_accessible_resources": ["src/options/options.html"],
+  // "options_page": "options.html",
+  // "web_accessible_resources": ["src/options/options.html"],
   "icons":{
     "64" : "assets/qw.png",
     "32" : "assets/qw.png",

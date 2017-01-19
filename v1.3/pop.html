@@ -25,7 +25,7 @@
 <body>
 <div class="block_container">
     <div class="header">
-        GRANITE NEWS
+        GRANITE API
     </div>
 </div>
 <div class="options">Column:</div>
@@ -34,24 +34,32 @@
  <option value="1">1 Column</option>
  <option value="2">2 Columns</option>
 </select>
+</br></br>
+<div class="note">NOTE: If the column is 2, you must pick even number of news sites.</div>
 </br>
 <div class="options">NEWS Agencies:</div>
 <div class="row">
     <div class="checkbox_style"> <!-- I might want to use js for this... Get back to this later! -->
-        <input type="checkbox" name="News" id="bloomberg" >Bloomberg
-        <input type="checkbox" name="News" id="bbc-news"  >BBC
-        <input type="checkbox" name="News" id="cnn"  >CNN
-        <input type="checkbox" name="News" id="the-new-york-times"  >The New York Times
-        <input type="checkbox" name="News" id="business-insider" >Business Insider
-        <input type="checkbox" name="News" id="google-news" >Google News
-        <input type="checkbox" name="News" id="the-economist" >The Economist
-        <input type="checkbox" name="News" id="hacker-news" >Hacker News
-        <input type="checkbox" name="News" id="national-geographic" >National Geographic
-        <br>
-        <button id="columnSave">Save</button>
+        <input type="checkbox" name="News" id="bloomberg" >Bloomberg</br>
+        <input type="checkbox" name="News" id="bbc-news"  >BBC</br>
+        <input type="checkbox" name="News" id="cnn"  >CNN</br>
+        <input type="checkbox" name="News" id="the-new-york-times"  >The New York Times</br>
+        <input type="checkbox" name="News" id="business-insider" >Business Insider</br>
+        <input type="checkbox" name="News" id="google-news" >Google News</br>
+        <input type="checkbox" name="News" id="the-economist" >The Economist</br>
+        <input type="checkbox" name="News" id="hacker-news" >Hacker News</br>
+        <input type="checkbox" name="News" id="national-geographic" >National Geographic</br>
+        
+        <button class= "wowbutton" id="columnSave">Save</button>
         <div id="status"></div>
     </div>
 </div>
+    </br>
+<form>
+<input type="text" name="symbols" placeholder="Look Up Stock Symbols">
+<input type="button" onclick="storeSymbol()" value="Submit form">
+</form>
+<div id="displaySymbols"></div>
 <div id="currentColumn" style="color:#fff"></div>
 <div id="currentColumnStatus"></div>
 <div id="status"></div>

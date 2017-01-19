@@ -31,17 +31,23 @@ function displaytime(){
 
 
 function quotes(){
-  symbols=["EBAY","AAPL","MSFT","TSLA","GOOGL","AMZN"];
+   symbols=["EBAY","AAPL","MSFT","TSLA","GOOGL","AMZN"]; 
+  //////////////
+  // To Do:   Implement to see if it's valid symbol here
+  //
+    
     var output=""
     for (var i=0;i<symbols.length;i++){
     xmlhttp=new XMLHttpRequest();
     xmlhttp.open("GET","https://www.bloomberg.com/markets/chart/data/1D/"+symbols[i]+":US" , false);
     xmlhttp.send();
     var parseddata = JSON.parse(xmlhttp.responseText);
-    // console.log(parseddata);
+    // The following is very hacky way of validating stock symbol... I gotta fix this later.
+    if (parseddata.show_1D == false){
+      continue;
+    }
     datapoints=parseddata.data_values;
     datapoints=parseddata.data_values[datapoints.length-1][1]
-    // console.log(datapoints);
     prevclose=parseddata.prev_close;
     delta= datapoints-prevclose;
 
@@ -61,7 +67,7 @@ function quotes(){
     output+="<font color='white'>"+symbols[i]+"</font>"+ ":"+ "<font color="+colour+">"+datapoints+"&nbsp&nbsp"+delta+"&nbsp"+percent+"</font>"+"&nbsp &nbsp &nbsp"
 
     }
-    // console.log(output);
+
     document.getElementById("quotes").innerHTML=output;
   
 }
@@ -94,7 +100,6 @@ function ModularNews(source,sort){
     titles.push(parseddata.articles[i].title);
     urllink=parseddata.articles[i].url;
     output +="<div class='orfont'>"+'-<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+ "<br>"+"</div>";
-    // document.getElementById("modular").innerHTML ="<div class='compfont'>"+NEWSDict[source]+"</div>"+ output;
   }
   return "<div class='compfont'>"+NEWSDict[source]+"</div>"+ output;
 }
@@ -102,6 +107,7 @@ function ModularNews(source,sort){
 
 function columnCreater(newsArray,n) // news is a list of news
 {
+  var output=""
   if (n==1){
     var output= '<div class="row">';
     for (var i=0; i<newsArray.length;i++){
@@ -117,27 +123,26 @@ function columnCreater(newsArray,n) // news is a list of news
       output += '<div class="cols">'+ModularNews(newsArray[i+1],"top")+'</div>'
       output += '</div>'
     }
-
-   
-    
     output += '</div>'
   }
-
+  if (n==420){
+    var output;
+    for (var i=0; i<(newsArray.length)-1;i+=2){
+      output +=  '<div class="row">';
+      output += '<div class="col-6">'+ModularNews(newsArray[i],"top")+'</div>'
+      output += '<div class="col-6">'+ModularNews(newsArray[i+1],"top")+'</div>'
+      output += '</div>'
+    }
+    output += '</div>'
+  }
  document.getElementById("modular").innerHTML=output;
+ console.log(output);
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  columnCreater(["bbc-news","the-new-york-times",  "hacker-news","google-news"],1);
+document.addEventListener('DOMContentLoaded', function () {  
   displaytime();
-
   quotes();
-  // ModularNews("cnn","top");
-   
-
   window.setInterval(displaytime, 1000);
   window.setInterval(quotes, 1000);
-
 });
 
 
@@ -146,14 +151,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 chrome.storage.sync.get(null, function (Items) {
-    console.log(Items.columnSetting);
     var columnVal=Items.columnSetting;
     var newsList=Items.newsList;
     // document.getElementById('cur').textContent=columnVal;
+   if ((columnVal!= 2) && (columnVal!=1)){
+         columnCreater(["bloomberg","bbc-news","google-news",  "the-economist"],420); // this is the default. "420" is an arbitrary number for initialization.
+   }
     if (columnVal==1){
         $(document).ready(function() { 
              columnCreater(newsList,1);
-             console.log(newsList);
+     
             var els = document.getElementsByClassName('cols');
             while (els.length) {els[0].className = 'col-12';}   
         });
@@ -162,8 +169,7 @@ chrome.storage.sync.get(null, function (Items) {
         $(document).ready(function() { 
           columnCreater(newsList,2);
             var els = document.getElementsByClassName('cols');
-            while (els.length) {els[0].className = 'col-6';}  
-            // ModularNews("hacker-news","top"); 
+            while (els.length) {els[0].className = 'col-6';}   
         });
     }
 });

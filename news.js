@@ -101,8 +101,21 @@ function columnCreater(newsArray,n) // news is a list of news
   if (n==1){
     var output= '<div class="row">';
     for (var i=0; i<newsArray.length;i++){
-      output += '<div class="col-12">'+ModularNews(newsArray[i],"top")+'</div>'
+      output += '<div class="cols">'+ModularNews(newsArray[i],"top")+'</div>'
     }
+    output += '</div>'
+  }
+  if (n==2){
+    var output;
+    for (var i=0; i<(newsArray.length)-1;i+=2){
+      output +=  '<div class="row">';
+      output += '<div class="cols">'+ModularNews(newsArray[i],"top")+'</div>'
+      output += '<div class="cols">'+ModularNews(newsArray[i+1],"top")+'</div>'
+      output += '</div>'
+    }
+
+   
+    
     output += '</div>'
   }
 
@@ -131,18 +144,20 @@ document.addEventListener('DOMContentLoaded', function () {
 chrome.storage.sync.get(null, function (Items) {
     console.log(Items.columnSetting);
     var columnVal=Items.columnSetting;
+    var newsList=Items.newsList;
     // document.getElementById('cur').textContent=columnVal;
     if (columnVal==1){
         $(document).ready(function() { 
-            //  columnCreater(["bbc-news","the-new-york-times",  "hacker-news","google-news"],1);
-            var els = document.getElementsByClassName('col-6');
+             columnCreater(newsList,1);
+             console.log(newsList);
+            var els = document.getElementsByClassName('cols');
             while (els.length) {els[0].className = 'col-12';}   
         });
     }
     if (columnVal==2){
         $(document).ready(function() { 
-          // columnCreater(["bbc-news","the-new-york-times",  "hacker-news","google-news"],2);
-            var els = document.getElementsByClassName('col-12');
+          columnCreater(newsList,2);
+            var els = document.getElementsByClassName('cols');
             while (els.length) {els[0].className = 'col-6';}  
             // ModularNews("hacker-news","top"); 
         });

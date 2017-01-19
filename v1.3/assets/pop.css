@@ -1,6 +1,6 @@
 /* Designed by jcpyun in California */
 
-/*       Welcome to jcpyun.css      */ 
+/*              pop.css             */ 
 /*************************************
                  Font
 **************************************/
@@ -12,7 +12,6 @@ body {
     padding: 0;
     background: linear-gradient(to bottom right,#000000,  #152515); 
 }
-
 
 @font-face {
     font-family: 'Blender'; 
@@ -127,32 +126,11 @@ text-decoration:underline;
     color: #FF3300;
     display:inline;
 }
-/*************************************
-               image
-**************************************/
-
-.logocontainer{
-    text-align:center;
-}
-
-.logos{
-    display:inline-block;
-    margin:5px 20px;
-    padding:5px;
-}
 
 /*************************************
                form 
 **************************************/
 
-.wow-form{
-  /*background: #FFFFFF;*/
-  /*max-width: 360px;*/
-  margin: 0 auto 10px;
-  padding: 100px;
-  text-align: center;
-
-}
 
 .checkbox_style{
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;

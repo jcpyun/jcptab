@@ -107,7 +107,7 @@ function ModularNews(source,sort){
 
 function columnCreater(newsArray,n) // news is a list of news
 {
-  var output=""
+  var output="" //this is to fix the 'undefined' bug. It was a declaration bug.
   if (n==1){
     var output= '<div class="row">';
     for (var i=0; i<newsArray.length;i++){

@@ -1,14 +1,14 @@
 /* Designed by jcpyun in California */
 
-/*       Welcome to jcpyun.css      */ 
+/*              tab.css             */ 
 /*************************************
                  Font
 **************************************/
-
 body {
     background-color: #101010;
     margin: 0;
     padding: 0;
+    background: linear-gradient(to bottom right,#000000,  #102010); 
 }
 
 @font-face {
@@ -19,6 +19,20 @@ body {
 * {
     box-sizing: border-box;
 }
+
+.rowwithside::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.rowwithside{
+    position: relative;
+    margin-left:40px;
+    /*margin-bottom:-100px;*/   
+}
+
+
+
 .row::after {
     content: "";
     clear: both;
@@ -118,63 +132,4 @@ text-decoration:underline;
     margin-top:0px;
     display:inline;
 }
-
-/*************************************
-               image
-**************************************/
-
-.logocontainer{
-    text-align:center;
-}
-
-.logos{
-    display:inline-block;
-    margin:5px 20px;
-    padding:5px;
-}
-
-/*************************************
-               form 
-**************************************/
-
-.wow-form{
-  /*background: #FFFFFF;*/
-  /*max-width: 360px;*/
-  margin: 0 auto 10px;
-  padding: 100px;
-  text-align: center;
-
-}
-
-
-
-/*************************************
-                 Fade
-**************************************/
-.fade1 {
-    -webkit-animation: fadein 2.5s; /* Safari and Chrome */
-    -moz-animation: fadein 2.5s; /* Firefox */
-    -ms-animation: fadein 2.5s; /* Internet Explorer */
-    -o-animation: fadein 2.5s; /* Opera */
-    animation: fadein 2.5s;
-}  
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-/* Firefox */
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-/* Safari and Chrome */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}​
 

@@ -32,17 +32,12 @@ function displaytime(){
 
 function quotes(){
    symbols=["EBAY","AAPL","MSFT","TSLA","GOOGL","AMZN"]; 
-  //////////////
-  // To Do:   Implement to see if it's valid symbol here
-  //
-    
     var output=""
     for (var i=0;i<symbols.length;i++){
     xmlhttp=new XMLHttpRequest();
     xmlhttp.open("GET","https://www.bloomberg.com/markets/chart/data/1D/"+symbols[i]+":US" , false);
     xmlhttp.send();
     var parseddata = JSON.parse(xmlhttp.responseText);
-    // The following is very hacky way of validating stock symbol... I gotta fix this later.
     if (parseddata.show_1D == false){
       continue;
     }
@@ -105,9 +100,9 @@ function ModularNews(source,sort){
 }
 
 
-function columnCreater(newsArray,n) // news is a list of news
+function columnCreater(newsArray,n)
 {
-  var output="" //this is to fix the 'undefined' bug. It was a declaration bug.
+  var output="" 
   if (n==1){
     var output= '<div class="row">';
     for (var i=0; i<newsArray.length;i++){
@@ -136,7 +131,6 @@ function columnCreater(newsArray,n) // news is a list of news
     output += '</div>'
   }
  document.getElementById("modular").innerHTML=output;
- console.log(output);
 }
 document.addEventListener('DOMContentLoaded', function () {  
   displaytime();
@@ -153,9 +147,9 @@ document.addEventListener('DOMContentLoaded', function () {
 chrome.storage.sync.get(null, function (Items) {
     var columnVal=Items.columnSetting;
     var newsList=Items.newsList;
-    // document.getElementById('cur').textContent=columnVal;
+   
    if ((columnVal!= 2) && (columnVal!=1)){
-         columnCreater(["bloomberg","bbc-news","google-news",  "the-economist"],420); // this is the default. "420" is an arbitrary number for initialization.
+         columnCreater(["bloomberg","bbc-news","google-news",  "the-economist"],420); 
    }
     if (columnVal==1){
         $(document).ready(function() { 

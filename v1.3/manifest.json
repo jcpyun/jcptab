@@ -1,6 +1,6 @@
 {
   "name": "News Tab",
-  "version": "1.2",
+  "version": "1.3",
   "manifest_version": 2,
   "description": "simple extension",
   "browser_action": {

@@ -1,10 +1,10 @@
 {
-  "name": "jcptab",
+  "name": "News Tab",
   "version": "1.2",
   "manifest_version": 2,
   "description": "simple extension",
   "browser_action": {
-    "default_icon": "assets/jp.png",
+    "default_icon": "assets/qw.png",
     "default_popup": "pop.html"
   },
   "chrome_url_overrides" : {
@@ -13,10 +13,10 @@
   "options_page": "options.html",
   "web_accessible_resources": ["src/options/options.html"],
   "icons":{
-    "64" : "assets/jp.png",
-    "32" : "assets/jp.png",
-    "16" : "assets/jp.png",
-    "128" : "assets/jp.png"
+    "64" : "assets/qw.png",
+    "32" : "assets/qw.png",
+    "16" : "assets/qw.png",
+    "128" : "assets/qw.png"
   },
    "permissions": ["tabs", "<all_urls>",
           "http://*/*",

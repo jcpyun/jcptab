@@ -21,7 +21,7 @@
           "https://*/*",
           "http://*/",
           "https://*/",
-          "storage"]
+          "storage",
+          "http://ff.search.yahoo.com/gossip/*"]
  
 }
-

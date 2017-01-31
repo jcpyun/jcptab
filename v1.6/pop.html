@@ -22,10 +22,11 @@
 -->
 
 <link href="assets/pop.css" rel="stylesheet">
+<link href="assets/jquery-ui.min.css" rel="stylesheet">
 <body>
 <div class="block_container">
     <div class="header">
-        GRANITE API
+        Settings - In Development
     </div>
 </div>
 <div class="options">Column:</div>
@@ -56,17 +57,20 @@
 </div>
     </br>
 <form>
-<input type="text" name="symbols" placeholder="Look Up Stock Symbols">
+<input id="stockTicker" type="text" name="symbols" placeholder="Look Up Stock Symbols">
 </br>
-<input type="button" onclick="storeSymbol()" value="Submit form">
+<!--<input type="button" onclick="storeSymbol()" value="Submit form">-->
 </form>
 <div id="displaySymbols"></div>
 <div id="currentColumn" style="color:#fff"></div>
 <div id="currentColumnStatus"></div>
 <div id="status"></div>
 <div id= "wowow"></div>
+<script src="assets/jquery-3.1.1.min.js"></script>
+<script src="assets/jquery-ui.min.js"></script>
+<script src="autocomplete.js"></script>
 <script src="newssave.js"></script>
-<script src="settings.js"></script>
+
 </body>
 
 

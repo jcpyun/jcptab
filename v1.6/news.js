@@ -24,8 +24,6 @@ function displaytime(){
   if (tsecond.length==1){
     tsecond=0+tsecond;
   }
- 
-  
   var output= thour+":"+tminute+":"+tsecond;
   document.getElementById("displaytime").innerHTML=output;
 }
@@ -35,7 +33,6 @@ function quotes(){
    symbols=["EBAY","AAPL","MSFT","TSLA","GOOGL","AMZN"]; 
     var output=""
     for (var i=0;i<symbols.length;i++){
-    
     xmlhttp.open("GET","https://www.bloomberg.com/markets/chart/data/1D/"+symbols[i]+":US" , false);
     xmlhttp.send();
     var parseddata = JSON.parse(xmlhttp.responseText);
@@ -63,10 +60,44 @@ function quotes(){
     output+="<font color='white'>"+symbols[i]+"</font>"+ ":"+ "<font color="+colour+">"+datapoints+"&nbsp&nbsp"+delta+"&nbsp"+percent+"</font>"+"&nbsp &nbsp &nbsp"
 
     }
-
     document.getElementById("quotes").innerHTML=output;
-  
 }
+
+  // http://dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=GOOG&callback=myFunction
+
+// function quotes(){
+//    symbols=["EBAY","AAPL","MSFT","TSLA","GOOGL","AMZN"]; 
+//     var output=""
+//     for (var i=0;i<symbols.length;i++){
+//     xmlhttp.open("GET","http://dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol="+symbols[i]+":US" , false);
+//     xmlhttp.send();
+//     var parseddata = JSON.parse(xmlhttp.responseText);
+//     if (parseddata.status == false){
+//       continue;
+//     }
+//     datapoints=parseddata.data_values;
+//     datapoints=parseddata.data_values[datapoints.length-1][1]
+//     prevclose=parseddata.prev_close;
+//     delta= parsed.data;
+
+    
+//     delta=Math.round(delta*100)/100;
+//     percent=delta/prevclose *100;
+//     percent=Math.round(percent*100)/100;
+//     percent="(%"+String(percent)+")";
+//     if (delta>=0){
+//       var colour="green";
+//       delta=String(delta);
+//       delta="+"+delta;
+//     }
+//     if (delta<0){
+//       var colour="red"
+//     }
+//     output+="<font color='white'>"+symbols[i]+"</font>"+ ":"+ "<font color="+colour+">"+datapoints+"&nbsp&nbsp"+delta+"&nbsp"+percent+"</font>"+"&nbsp &nbsp &nbsp"
+
+//     }
+//     document.getElementById("quotes").innerHTML=output;
+// }
 
 
 function ModularNews(source,sort){

@@ -61,7 +61,7 @@ function quotes(){
     if (delta<0){
       var colour="red"
     }
-    output+="<font color='white'>"+actual[i]+"</font>"+ ":"+ "<font color="+colour+">"+datapoints+"&nbsp&nbsp"+delta+"&nbsp"+percent+"</font>"+"&nbsp &nbsp &nbsp"
+    output+="<font color='white'>"+actual[i]+ ": "+"</font>"+ "<font color="+colour+">"+datapoints+"&nbsp&nbsp"+delta+"&nbsp"+percent+"</font>"+"&nbsp &nbsp &nbsp"
     newoutput+="<font color='white'>"+actual[i]+"</font>"+ ":"+ "<font color="+colour+">"+datapoints+"&nbsp&nbsp"+delta+"&nbsp"+percent+"</font>"+"&nbsp &nbsp &nbsp"
     }
     document.getElementById("quotes").innerHTML=output;
@@ -190,10 +190,10 @@ function columnCreater(newsArray,n)
 document.addEventListener('DOMContentLoaded', function () {  
   displaytime();
   quotes();
-  redditFeeder();
+  // redditFeeder();
   window.setInterval(displaytime, 1000);
   window.setInterval(quotes, 1000);
-  window.setInterval(redditFeeder, 1000);
+  // window.setInterval(redditFeeder, 1000);
 });
 
 

@@ -30,13 +30,13 @@ function displaytime(){
 
 
 function quotes(){
-  //  symbols=["EBAY","AAPL","MSFT","TSLA","GOOGL","AMZN"]; 
+
     symbols=["INDU:IND","SPX:IND","UKX:IND","NK1:IND","EURUSD:CUR","CL1:COM"]; 
     actual=["DJIA","SP&P 500","FTSE 100","Nikkei 225 Future","EUR-USD","WTI-Crude"]
     var output=""
     var newoutput=""
     for (var i=0;i<symbols.length;i++){
-    // xmlhttp.open("GET","https://www.bloomberg.com/markets/chart/data/1D/"+symbols[i]+":US" , false);
+   
     xmlhttp.open("GET","https://www.bloomberg.com/markets/chart/data/1D/"+symbols[i] , false);
     xmlhttp.send();
     var parseddata = JSON.parse(xmlhttp.responseText);
@@ -86,42 +86,6 @@ function redditFeeder(){
 
 
 
-  // http://dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=GOOG&callback=myFunction
-
-// function quotes(){
-//    symbols=["EBAY","AAPL","MSFT","TSLA","GOOGL","AMZN"]; 
-//     var output=""
-//     for (var i=0;i<symbols.length;i++){
-//     xmlhttp.open("GET","http://dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol="+symbols[i]+":US" , false);
-//     xmlhttp.send();
-//     var parseddata = JSON.parse(xmlhttp.responseText);
-//     if (parseddata.status == false){
-//       continue;
-//     }
-//     datapoints=parseddata.data_values;
-//     datapoints=parseddata.data_values[datapoints.length-1][1]
-//     prevclose=parseddata.prev_close;
-//     delta= parsed.data;
-
-    
-//     delta=Math.round(delta*100)/100;
-//     percent=delta/prevclose *100;
-//     percent=Math.round(percent*100)/100;
-//     percent="(%"+String(percent)+")";
-//     if (delta>=0){
-//       var colour="green";
-//       delta=String(delta);
-//       delta="+"+delta;
-//     }
-//     if (delta<0){
-//       var colour="red"
-//     }
-//     output+="<font color='white'>"+symbols[i]+"</font>"+ ":"+ "<font color="+colour+">"+datapoints+"&nbsp&nbsp"+delta+"&nbsp"+percent+"</font>"+"&nbsp &nbsp &nbsp"
-
-//     }
-//     document.getElementById("quotes").innerHTML=output;
-// }
-
 function ModularNews(source,sort){
   var NEWSDict={
     "cnn":"CNN",
@@ -133,7 +97,10 @@ function ModularNews(source,sort){
     "the-economist":"The Economist",
     "hacker-news":"Hacker News",
     "national-geographic":"National Geographic",
-    "time":"Time"
+    "time":"Time",
+    "espn":"ESPN",
+    "the-wall-street-journal":"The Wall Street Journal",
+    "techcrunch":"TechCrunch",
   }
   var apikey="8a284b7114cc49efa3f55b969b850f9a";
 
@@ -190,10 +157,10 @@ function columnCreater(newsArray,n)
 document.addEventListener('DOMContentLoaded', function () {  
   displaytime();
   quotes();
-  // redditFeeder();
+
   window.setInterval(displaytime, 1000);
   window.setInterval(quotes, 1000);
-  // window.setInterval(redditFeeder, 1000);
+
 });
 
 
@@ -202,11 +169,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 chrome.storage.sync.get(null, function (Items) {
-  // console.log(Items);
+
     var columnVal=Items.columnSetting;
     var newsList=Items.newsList;
-  //  console.log(columnVal);
-  //  console.log(newsList);
+ 
    if ((columnVal!= 2) && (columnVal!=1)){
          columnCreater(["bloomberg","bbc-news","google-news",  "the-economist"],420); 
    }
@@ -220,7 +186,7 @@ chrome.storage.sync.get(null, function (Items) {
     }
     if (columnVal==2){
         $(document).ready(function() { 
-          // console.log("it reached here");
+
           columnCreater(newsList,2);
             var els = document.getElementsByClassName('cols');
             while (els.length) {els[0].className = 'col-6';}   

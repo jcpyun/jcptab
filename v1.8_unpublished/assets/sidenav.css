@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+
+.sidenav{
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size:20px;
+
+}
+
+.sidenav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    background-color: #222;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidenav li a {
+    display: block;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.sidenav li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.sidenav li a:hover:not(.active) {
+    background-color: #999;
+    color: white;
+}

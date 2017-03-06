@@ -1,0 +1,135 @@
+/* Designed by jcpyun in California */
+
+/*              tab.css             */ 
+/*************************************
+                 Font
+**************************************/
+body {
+    background-color: #101010;
+    margin: 0;
+    padding: 0;
+    /*background: linear-gradient(to bottom right,#000000,  #102010); */
+}
+
+@font-face {
+    font-family: 'Blender'; 
+    src: url("blender.ttf");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.rowwithside::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.rowwithside{
+    position: relative;
+    margin-left:40px;
+    /*margin-bottom:-100px;*/   
+}
+
+
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+    left:50%;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    /*border: 1px solid red;*/
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;
+padding-left:30%;}
+
+.orfont a:link {
+color: #FFA500;
+text-decoration:None;
+}
+.orfont a:visited {
+color: #999999;
+}
+.orfont a:hover {
+color: #FF3300;
+text-decoration:underline;
+}
+.compfont{
+    position: relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size:50;
+    color: 	#ddd;
+	text-align: left;
+	margin-top:0px;
+    /*padding-left:100px;*/
+}
+
+.orfont{
+    position: relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 10;
+    letter-spacing: 1px;
+    font-size:20px;
+    color: 	#FFA500;
+	text-align: ;
+	margin-top:0px;
+}
+.markfont{
+    position: relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: 	#FF4500;
+
+	margin-top:0px;
+}
+.quotefont{
+    position: relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: 	#FF4500;
+
+	margin-top:0px;
+}
+.block_container
+{
+    text-align:center;
+}
+
+.blender{
+    position:relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size:100;
+    color: #ffffff;
+	margin-left:80px;
+    margin-top:0px;
+    display:inline;
+}
+.timer{
+    position:relative;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size:50;
+    color: #ffffff;
+	margin-left:80px;
+    margin-top:0px;
+    display:inline;
+}
+

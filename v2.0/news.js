@@ -113,11 +113,11 @@ function ModularNews(source,sort){
   var br = document.createElement("br");
   var output="";
   output+="<table >"
-
   for (var i=0; i<parseddata.articles.length;i++){
     titles.push(parseddata.articles[i].title);
     urllink=parseddata.articles[i].url;
-    output +="<tr><td><span class='orfont'>"+'<a href="'+urllink+'">'+parseddata.articles[i].title+"</a>"+ "<br>"+"</span></td></tr>";
+    output +="<tr>"+"<td>"+'<a href="'+urllink+'">'+parseddata.articles[i].title+"</a>"+ "<br>"+"</span>"+"</td>"+"</tr>";
+   
   }
   output +="</table>"
   // for (var i=0; i<parseddata.articles.length;i++){

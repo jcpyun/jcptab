@@ -86,9 +86,8 @@ text-decoration:underline;
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 10;
     letter-spacing: 1px;
-    font-size:20px;
+    font-size:18px;
     color: 	#FFA500;
-	text-align: ;
 	margin-top:0px;
 }
 .markfont{
@@ -106,10 +105,17 @@ text-decoration:underline;
 	margin-top:0px;
 }
 .block_container
-{
+{   
+    /*position:fixed;*/
     text-align:center;
+    /*margin-bot:50px;*/
 }
-
+.fixedtop{
+    position:fixed;
+    width:100%;
+    z-index:9;
+    background:#000;
+}
 .blender{
     position:relative;
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -142,6 +148,13 @@ table{
     
      text-overflow:ellipsis; 
     overflow:hidden;
+      
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 10;
+
+    font-size:18px;
+    color: 	#FFA500;
+	margin-top:0px;
 }
 th, td {
     text-align: left;
@@ -149,6 +162,7 @@ th, td {
     white-space: nowrap;
     text-overflow:ellipsis; 
     overflow:hidden;
+    /*background-color:#222;*/
 }
 
 
@@ -157,7 +171,21 @@ th, td {
     color: white;
 }
 
-tr:hover {
-    color:#fff;
+/*tr:hover {
+  color:#fff;
+  background-color: #6b0012;
+}*/
+a:link {
+
+color: #FFA500;
+text-decoration:None;
+}
+a:visited {
+color: #999999;
+}
+a:hover {
+color: #fff;
+text-decoration:underline;
+
   background-color: #6b0012;
 }

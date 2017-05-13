@@ -9,6 +9,7 @@
 bork bork bork
 
 ///////////////*/
+
 xmlhttp=new XMLHttpRequest();
 function displaytime(){
   var temptime= new Date();
@@ -30,7 +31,6 @@ function displaytime(){
 
 
 function quotes(){
-
     symbols=["INDU:IND","SPX:IND","UKX:IND","NK1:IND","EURUSD:CUR","CL1:COM"]; 
     actual=["DJIA","S&P 500","FTSE 100","Nikkei 225 Future","EUR-USD","WTI-Crude"]
     var output=""
@@ -47,8 +47,6 @@ function quotes(){
     datapoints=parseddata.data_values[datapoints.length-1][1]
     prevclose=parseddata.prev_close;
     delta= datapoints-prevclose;
-
-    
     delta=Math.round(delta*10000)/10000;
     percent=delta/prevclose *100;
     percent=Math.round(percent*100)/100;
@@ -67,22 +65,6 @@ function quotes(){
     document.getElementById("quotes").innerHTML=output;
 }
 
-function redditFeeder(){
-  var apikey="8a284b7114cc49efa3f55b969b850f9a";
-  xmlhttp.open("GET", "https://newsapi.org/v1/articles?source=reddit-r-all&sortBy=top"+"&apiKey="+apikey, false);
-  xmlhttp.send();
-  var parseddata = JSON.parse(xmlhttp.responseText);
-  var titles=[];
-  var newDiv= document.createElement("div");
-  var br = document.createElement("br");
-  var output="";
-  for (var i=0; i<parseddata.articles.length;i++){
-    titles.push(parseddata.articles[i].title);
-    urllink=parseddata.articles[i].url;
-    output +="<font color='white'>"+'-<a href="'+urllink+'">'+parseddata.articles[i].title +"</a>"+"</font>";
-  }
-  document.getElementById("reddit").innerHTML=output;
-}
 
 
 
@@ -117,7 +99,9 @@ function ModularNews(source,sort){
     titles.push(parseddata.articles[i].title);
     urllink=parseddata.articles[i].url;
     output +="<tr>"+"<td>"+'<a href="'+urllink+'">'+parseddata.articles[i].title+"</a>"+ "<br>"+"</span>"+"</td>"+"</tr>";
-   
+    // output +='<tr onclick="window.location=\'http://example.com \' " >'+'<td>'+parseddata.articles[i].title+ "<br>"+"</span>"+"</td>"+"</tr>";
+// onclick="window.location=\'http://example.com \' "
+  //  onclick=
   }
   output +="</table>"
   // for (var i=0; i<parseddata.articles.length;i++){
@@ -170,8 +154,12 @@ document.addEventListener('DOMContentLoaded', function () {
   window.setInterval(quotes, 1000);
 
 });
-
-
+document.forms[0].addEventListener('submit', function() {
+  chrome.tabs.update({url:'https://www.google.com/search?q='
+                           + document.getElementById('tftextinput').value});
+    // window.location.href = 'https://www.google.com.com?q='
+    //                        + document.getElementById('tftextinput').value;
+}, false);
 
 
 
@@ -202,3 +190,9 @@ chrome.storage.sync.get(null, function (Items) {
     }
 });
 
+
+  // buttonTemp="";
+  // buttonTemp+="<button class='buttonTemp'>"
+  // buttonTemp+='<i class="fa fa-link fa-2x" aria-hidden="true"></i>'
+  // buttonTemp+="</div>"
+  // $(".location_search_div").append(buttonTemp);

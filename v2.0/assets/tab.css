@@ -40,7 +40,8 @@ body {
 }
 [class*="col-"] {
     float: left;
-    padding: 15px;
+    /*padding: 15px;*/
+    padding-left:10px;
     /*border: 1px solid red;*/
 }
 .col-1 {width: 8.33%;}
@@ -101,7 +102,7 @@ text-decoration:underline;
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: 	#FF4500;
 
-	margin-top:0px;
+	margin-top:0px; 
 }
 .block_container
 {   
@@ -118,10 +119,15 @@ text-decoration:underline;
 .fixedbot{
     position:fixed;
     bottom:0px;
-    height:10px;
+    height:20px;
     width:100%;
-    z-index:9;
-    background:#f00;
+    z-index:1;
+    background:#333;
+}
+.bottombutton{
+    width:500px;
+    height:10px;
+    background:#2f8833;
 }
 .blender{
     position:relative;

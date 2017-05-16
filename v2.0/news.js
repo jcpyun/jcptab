@@ -27,6 +27,7 @@ function displaytime(){
   }
   var output= thour+":"+tminute+":"+tsecond;
   document.getElementById("displaytime").innerHTML=output;
+  document.getElementById("headertime").innerHTML=output;
 }
 
 

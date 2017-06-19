@@ -156,7 +156,8 @@ function columnCreater(newsArray,n)
       console.log($(this).find("a").attr("href"));
       window.location.replace($(this).find("a").attr("href"))
   });
-  $( "tr" ).hover(function(){
+
+  $( "tr" ).mouseenter(function(){
       var imgurl="'"+$(this).find('td:nth-child(3)').text()+"'"
       var i=""
       i+='<img src='+imgurl+' style="width:40%;height:auto;float:left;margin-right:10px;">'
@@ -170,6 +171,11 @@ function columnCreater(newsArray,n)
        $(".jcpdiv").css("left", String(event.pageX)+"px");
        $(".jcpdiv").css("top", String(event.pageY)+"px");
   })
+
+  $( "tr" ).mouseleave(function(){
+    $(".jcpdiv").remove();
+  });
+
 }
 document.addEventListener('DOMContentLoaded', function () {  
   displaytime();

@@ -157,7 +157,7 @@ function columnCreater(newsArray,n)
       window.location.replace($(this).find("a").attr("href"))
   });
 
-  $( "tr" ).mouseenter(function(){
+  $( "tr" ).on( "mousemove", function( event ) {
       var imgurl="'"+$(this).find('td:nth-child(3)').text()+"'"
       var i=""
       i+='<img src='+imgurl+' style="width:40%;height:auto;float:left;margin-right:10px;">'
@@ -165,11 +165,21 @@ function columnCreater(newsArray,n)
       $(".jcpdiv").remove();
       // console.log($(this))
        console.log($(this).find('td:nth-child(2)').text());
-       console.log(event.pageX,event.pageY)
+       console.log(event.pageX,event.pageY,typeof(event.pageX))
        console.log($(this).find('td:nth-child(3)').text())
        createWidget("previewDiv","Article X-Ray",String(event.pageX)+"px",String(event.pageY)+"px",i)
        $(".jcpdiv").css("left", String(event.pageX)+"px");
-       $(".jcpdiv").css("top", String(event.pageY)+"px");
+       if (event.pageY>($(".articles").height()-200))
+       {
+          // $(".jcpdiv").css("vertical-align", "bottom");
+      $(".jcpdiv").css("top", String(event.pageY-200)+"px");
+   
+       }
+       else{
+        $(".jcpdiv").css("top", String(event.pageY)+"px");
+       
+       }
+       
   })
 
   $( "tr" ).mouseleave(function(){

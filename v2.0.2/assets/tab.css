@@ -313,11 +313,11 @@ text-decoration:underline;
 .jcpdiv{
     position:absolute;
 
-    width:350px;
+    width:355px;
     /*height:150px;*/
     overflow:scroll;
     border-color:#ddd;
-    background-color:#364e5f;
+    background-color:#465e6f;
     /*background-color:rgba(40,55,65, 0.8);*/
     border:1px solid transparent;
     border-radius:4px;
@@ -326,7 +326,7 @@ text-decoration:underline;
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 200;
     letter-spacing: 1px;
-    font-size:14px;
+    font-size:15px;
     color: #fff;
     z-index:10;
 }
@@ -335,8 +335,8 @@ text-decoration:underline;
     font-weight:bold;
     background-color:#000;
     /*border-color:#aaa;*/
-    font-size:12px;
-    padding:4px 30px;
+    font-size:15px;
+    padding:3px 30px;
     border-bottom:1px solid transparent;
     border-top-right-radius:3px;
     border-top-left-radius:3px;

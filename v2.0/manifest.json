@@ -1,6 +1,6 @@
 {
   "name": "JPNews",
-  "version": "1.8",
+  "version": "2.0.1",
   "manifest_version": 2,
   "description": "Chrome Extension for accessing News from different sources easily.",
   "browser_action": {

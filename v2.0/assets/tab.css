@@ -106,14 +106,16 @@ text-decoration:underline;
     position: relative;
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: 	#FF4500;
-
+    /*overflow:hidden;*/
 	margin-top:0px; 
 }
 .block_container
 {   
+    
     /*position:fixed;*/
     text-align:center;
     /*margin-bot:50px;*/
+    /*margin-left:200px;*/
 }
 .fixedtop{
     position:fixed;
@@ -160,7 +162,7 @@ text-decoration:underline;
     letter-spacing: 1px;
     font-size:50;
     color: #ffffff;
-	margin-left:80px;
+	margin-left:0px;
     margin-top:0px;
     display:inline;
 }
@@ -227,7 +229,7 @@ text-decoration:underline;
 
 
 .location_search_div{
-  position:absolute;
+  /*position:absolute;*/
   left:0px;
   top:0px;
   width:100%;
@@ -260,20 +262,23 @@ text-decoration:underline;
 #tftextinput {
     position: relative;
     font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
-    left:230px;
+    /*left:230px;*/
+    float:right;
     top: 23px;
-    width: 239px;
+    width: 20vw;
+    right:50px;
 
     
     padding-left: 15px;
     padding-right: 15px;
-    background: rgba(255,255,255,1);
+    /*background: rgba(255,255,255,1);*/
+    background:#ddd;
     margin-left: -140px;
     border: 1px solid #656565;
     font-size: 17px;
     height: 30px;
     outline: none;
-    border-radius: 3px;
+    border-radius: 10px;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
     z-index: 90;
 }
@@ -302,5 +307,38 @@ text-decoration:underline;
     font-family: Arial, Helvetica, sans-serif !important;
     font-size: 11px !important;
     z-index: 50;
+
+}
+
+.jcpdiv{
+    position:absolute;
+
+    width:350px;
+    /*height:150px;*/
+    overflow:scroll;
+    border-color:#ddd;
+    background-color:#364e5f;
+    /*background-color:rgba(40,55,65, 0.8);*/
+    border:1px solid transparent;
+    border-radius:4px;
+    box-shadow:2px 2px 2px rgba(0,0,0,1);
+    margin:10 10 10 10;
+    font-family: "Blender","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-size:14px;
+    color: #fff;
+    z-index:10;
+}
+.jcpdivhead{
+    color:#fff;
+    font-weight:bold;
+    background-color:#000;
+    /*border-color:#aaa;*/
+    font-size:12px;
+    padding:4px 30px;
+    border-bottom:1px solid transparent;
+    border-top-right-radius:3px;
+    border-top-left-radius:3px;
 
 }

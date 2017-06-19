@@ -27,7 +27,8 @@ function displaytime(){
   }
   var output= thour+":"+tminute+":"+tsecond;
   document.getElementById("displaytime").innerHTML=output;
-  document.getElementById("headertime").innerHTML=output;
+  
+  // document.getElementById("headertime").innerHTML=output;
 }
 
 
@@ -95,11 +96,15 @@ function ModularNews(source,sort){
   var newDiv= document.createElement("div");
   var br = document.createElement("br");
   var output="";
-  output+="<table >"
+  output+="<table class='jcptable'>"
   for (var i=0; i<parseddata.articles.length;i++){
     titles.push(parseddata.articles[i].title);
     urllink=parseddata.articles[i].url;
-    output +="<tr>"+"<td>"+'<a href="'+urllink+'">'+parseddata.articles[i].title+"</a>"+ "<br>"+"</span>"+"</td>"+"</tr>";
+    output +="<tr>"
+    output += "<td>"+'<a href="'+urllink+'">'+parseddata.articles[i].title+"</a>"+ "<br>"+"</span>"+"</td>"
+    output += "<td id='articlePic' style='display:none;'>"+parseddata.articles[i].description+"</td>"
+    output += "<td id='articlePic' style='display:none;'>"+parseddata.articles[i].urlToImage+"</td>"
+    output += "</tr>";
     // output +='<tr onclick="window.location=\'http://example.com \' " >'+'<td>'+parseddata.articles[i].title+ "<br>"+"</span>"+"</td>"+"</tr>";
 // onclick="window.location=\'http://example.com \' "
   //  onclick=
@@ -146,6 +151,25 @@ function columnCreater(newsArray,n)
     output += '</div>'
   }
  document.getElementById("modular").innerHTML=output;
+
+  $("tr").click(function() {
+      console.log($(this).find("a").attr("href"));
+      window.location.replace($(this).find("a").attr("href"))
+  });
+  $( "tr" ).hover(function(){
+      var imgurl="'"+$(this).find('td:nth-child(3)').text()+"'"
+      var i=""
+      i+='<img src='+imgurl+' style="width:40%;height:auto;float:left;margin-right:10px;">'
+      i+= '<div style="float:right;width:55%;">'+$(this).find('td:nth-child(2)').text()+'</div>'
+      $(".jcpdiv").remove();
+      // console.log($(this))
+       console.log($(this).find('td:nth-child(2)').text());
+       console.log(event.pageX,event.pageY)
+       console.log($(this).find('td:nth-child(3)').text())
+       createWidget("previewDiv","Article X-Ray",String(event.pageX)+"px",String(event.pageY)+"px",i)
+       $(".jcpdiv").css("left", String(event.pageX)+"px");
+       $(".jcpdiv").css("top", String(event.pageY)+"px");
+  })
 }
 document.addEventListener('DOMContentLoaded', function () {  
   displaytime();
@@ -192,8 +216,15 @@ chrome.storage.sync.get(null, function (Items) {
 });
 
 
-  // buttonTemp="";
-  // buttonTemp+="<button class='buttonTemp'>"
-  // buttonTemp+='<i class="fa fa-link fa-2x" aria-hidden="true"></i>'
-  // buttonTemp+="</div>"
-  // $(".location_search_div").append(buttonTemp);
+function createWidget(idname,titlename,xcoord,ycoord,context){
+    var idvar="";
+    idvar+='<div class="jcpdiv" id="'+idname+'">'
+    idvar+='<div class="jcpdivhead">'
+    idvar+=titlename
+    idvar+='</div>'
+    idvar+=context
+    idvar+='</div>'
+    $(".articles").append(idvar);
+    console.log(xcoord,ycoord,typeof(xcoord))
+
+}
